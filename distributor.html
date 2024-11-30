@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+      * {
+        font-family: "Inter", sans-serif;
+        font-optical-sizing: auto;
+      }
+
+      .mySwiper2 .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        height: calc((100% - 30px) / 2) !important;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .testimonial {
+        height: 250px;
+      }
+
+      .testimonial .card {
+        background-color: #f5f6f7;
+        box-shadow: -4px -2px 4px 0px #ffffff, 4px 2px 6px 0px #dfe4ea;
+
+        background-image: url("/images/testimonial-background.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .testimonial .card-text {
+        font-size: 20px;
+      }
+
+      .testimonial .autoplay-progress {
+        position: absolute;
+        right: 16px;
+        bottom: 16px;
+        z-index: 10;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: white;
+      }
+
+      .testimonial .autoplay-progress svg {
+        --progress: 0;
+        position: absolute;
+        left: 0;
+        top: 0px;
+        z-index: 10;
+        width: 100%;
+        height: 100%;
+        stroke-width: 4px;
+        stroke: white;
+        fill: none;
+        stroke-dashoffset: calc(125.6px * (1 - var(--progress)));
+        stroke-dasharray: 125.6;
+        transform: rotate(-90deg);
+      }
+
+      @media only screen and (max-width: 400px) {
+        .testimonial .card-img {
+          height: 150px !important;
+          width: 150px !important;
+        }
+      }
+
+      .contact .border-left {
+        border-left: 2px solid red;
+        padding-left: 30px;
+        margin-left: 30px;
+        margin-top: 30px;
+      }
+
+      .contact .box-shadow {
+        /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px !important; */
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+      }
+
+      .contact .asterisk:after {
+        content: "*";
+        color: red;
+        padding-left: 2px;
+      }
+
+      .contact i,
+      h2 {
+        color: #b31c27;
+      }
+
+      .contact h6 {
+        color: #360fe0;
+      }
+
+      .contact i:hover {
+        color: #06e211 !important;
+      }
+
+      .contact i span:hover {
+        color: #b31c27 !important;
+      }
+
+      .contact .btn {
+        background-color: #b31c27 !important;
+        border: none !important;
+        color: white;
+      }
+
+      .contact .btn:hover {
+        background-color: #4309e0 !important;
+        border: none !important;
+        color: white;
+      }
+
+      .contact input[type="text"]:focus,
+      .contact input[type="email"]:focus {
+          box-shadow: none;
+          border: 1px solid brown;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card border-0">
+      <img src="./images/image1.jpg" class="card-img img-fluid w-100" alt="..." title="..." style="max-height: 400px" />
+      <div class="card-img-overlay d-flex flex-column justify-content-center">
+        <h3 class="card-title text-white ms-1 ms-md-5">Innovative Fire Safety Solutions with</h3>
+        <h3 class="card-title text-white ms-1 ms-md-5">NAFFCO Delivered by Axis Safety Eng Ltd</h3>
+      </div>
+    </div>
+
+    <div class="container-fluid container-lg">
+      <div class="row mt-5">
+        <div class="col-sm-12 col-md-6">
+          <h3 class="fw-bolder" style="color: #b31c27">Leading Distributor of NAFFCO in Bangladesh Ensuring Fire Safety Excellence</h3>
+          <p style="text-align: justify">As the leading distributor of NAFFCO products in Bangladesh, Axis Safety Eng Ltd provides world-class fire protection solutions to safeguard lives and property. From advanced firefighting equipment to state-of-the-art fire detection systems, We deliver reliable and certified fire safety products. With a commitment to excellence, we ensure your safety with tailored solutions for residential, commercial, and industrial needs. Trust Axis Safety Eng Ltd to keep you protected with industry-leading expertise and NAFFCO globally recognized quality.</p>
+        </div>
+        <div class="col-sm-12 col-md-6">
+          <img src="./images/image2.jpg" class="img-fluid rounded w-100" alt="..." title="..." style="max-height: 300px" />
+        </div>
+      </div>
+
+      <div class="row mt-5">
+        <div class="col-sm-12 col-md-6">
+          <img src="./images/image3.jpg" class="img-fluid rounded w-100" alt="..." title="..." style="max-height: 300px" />
+        </div>
+        <div class="col-sm-12 col-md-6">
+          <h3 class="fw-bolder" style="color: #b31c27">Partnership with NAFFCO</h3>
+          <p style="text-align: justify">As the leading distributor of NAFFCO products in Bangladesh, Axis Safety Eng Ltd provides world-class fire protection solutions to safeguard lives and property. From advanced firefighting equipment to state-of-the-art fire detection systems, We deliver reliable and certified fire safety products. With a commitment to excellence, we ensure your safety with tailored solutions for residential, commercial, and industrial needs. Trust Axis Safety Eng Ltd to keep you protected with industry-leading expertise and NAFFCO globally recognized quality.</p>
+        </div>
+      </div>
+
+      <h3 class="fw-bolder mt-5 text-center" style="color: #b31c27">NAFFCO Products Offered by Axis Safety Eng Ltd</h3>
+      <p style="text-align: center">As the leading distributor of NAFFCO products in Bangladesh, Axis Safety Eng Ltd provides world-class fire protection solutions to safeguard lives and property. From advanced firefighting equipment to state-of-the-art fire detection systems, We deliver reliable and certified fire safety products. With a commitment to excellence, we ensure your safety with tailored solutions for residential, commercial, and industrial needs. Trust Axis Safety Eng Ltd to keep you protected with industry-leading expertise and NAFFCO globally recognized quality.</p>
+      <div class="swiper productSwiper w-100 p-1 mt-4" style="height: 275px">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide rounded" style="box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px">
+            <div class="card border-0">
+              <div class="row g-0">
+                <div class="col-md-5">
+                  <img src="./images/p1.jpg" class="img-fluid d-block m-auto w-auto" alt="..." title="..." style="max-height: 120px" />
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body h-100 d-flex flex-column justify-content-center align-items-center">
+                    <h6 class="card-title" style="color: brown">Product Name here</h6>
+                    <a href="http://" class="stretched-link text-decoration-none fw-semibold" style="font-size: small">Learn More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide rounded" style="box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px">
+            <div class="card border-0">
+              <div class="row g-0">
+                <div class="col-md-5">
+                  <img src="./images/p2.jpg" class="img-fluid d-block m-auto w-auto" alt="..." title="..." style="max-height: 120px" />
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body h-100 d-flex flex-column justify-content-center align-items-center">
+                    <h6 class="card-title" style="color: brown">Product Name here</h6>
+                    <a href="http://" class="stretched-link text-decoration-none fw-semibold" style="font-size: small">Learn More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide rounded" style="box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px">
+            <div class="card border-0">
+              <div class="row g-0">
+                <div class="col-md-5">
+                  <img src="./images/p3.jpg" class="img-fluid d-block m-auto w-auto" alt="..." title="..." style="max-height: 120px" />
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body h-100 d-flex flex-column justify-content-center align-items-center">
+                    <h6 class="card-title" style="color: brown">Product Name here</h6>
+                    <a href="http://" class="stretched-link text-decoration-none fw-semibold" style="font-size: small">Learn More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide rounded" style="box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px">
+            <div class="card border-0">
+              <div class="row g-0">
+                <div class="col-md-5">
+                  <img src="./images/p15.jfif" class="img-fluid d-block m-auto w-auto" alt="..." title="..." style="max-height: 120px" />
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body h-100 d-flex flex-column justify-content-center align-items-center">
+                    <h6 class="card-title" style="color: brown">Product Name here</h6>
+                    <a href="http://" class="stretched-link text-decoration-none fw-semibold" style="font-size: small">Learn More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide rounded" style="box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px">
+            <div class="card border-0">
+              <div class="row g-0">
+                <div class="col-md-5">
+                  <img src="./images/p16.jfif" class="img-fluid d-block m-auto w-auto" alt="..." title="..." style="max-height: 120px" />
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body h-100 d-flex flex-column justify-content-center align-items-center">
+                    <h6 class="card-title" style="color: brown">Product Name here</h6>
+                    <a href="http://" class="stretched-link text-decoration-none fw-semibold" style="font-size: small">Learn More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide rounded" style="box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px">
+            <div class="card border-0">
+              <div class="row g-0">
+                <div class="col-md-5">
+                  <img src="./images/p17.jfif" class="img-fluid d-block m-auto w-auto" alt="..." title="..." style="max-height: 120px" />
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body h-100 d-flex flex-column justify-content-center align-items-center">
+                    <h6 class="card-title" style="color: brown">Product Name here</h6>
+                    <a href="http://" class="stretched-link text-decoration-none fw-semibold" style="font-size: small">Learn More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide rounded" style="box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px">
+            <div class="card border-0">
+              <div class="row g-0">
+                <div class="col-md-5">
+                  <img src="./images/p18.jfif" class="img-fluid d-block m-auto w-auto" alt="..." title="..." style="max-height: 120px" />
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body h-100 d-flex flex-column justify-content-center align-items-center">
+                    <h6 class="card-title" style="color: brown">Product Name here</h6>
+                    <a href="http://" class="stretched-link text-decoration-none fw-semibold" style="font-size: small">Learn More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide rounded" style="box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px">
+            <div class="card border-0">
+              <div class="row g-0">
+                <div class="col-md-5">
+                  <img src="./images/p19.jfif" class="img-fluid d-block m-auto w-auto" alt="..." title="..." style="max-height: 120px" />
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body h-100 d-flex flex-column justify-content-center align-items-center">
+                    <h6 class="card-title" style="color: brown">Product Name here</h6>
+                    <a href="http://" class="stretched-link text-decoration-none fw-semibold" style="font-size: small">Learn More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide rounded" style="box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px">
+            <div class="card border-0">
+              <div class="row g-0">
+                <div class="col-md-5">
+                  <img src="./images/p20.jfif" class="img-fluid d-block m-auto w-auto" alt="..." title="..." style="max-height: 120px" />
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body h-100 d-flex flex-column justify-content-center align-items-center">
+                    <h6 class="card-title" style="color: brown">Product Name here</h6>
+                    <a href="http://" class="stretched-link text-decoration-none fw-semibold" style="font-size: small">Learn More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide rounded" style="box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px">
+            <div class="card border-0">
+              <div class="row g-0">
+                <div class="col-md-5">
+                  <img src="./images/p21.jfif" class="img-fluid d-block m-auto w-auto" alt="..." title="..." style="max-height: 120px" />
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body h-100 d-flex flex-column justify-content-center align-items-center">
+                    <h6 class="card-title" style="color: brown">Product Name here</h6>
+                    <a href="http://" class="stretched-link text-decoration-none fw-semibold" style="font-size: small">Learn More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide rounded" style="box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px">
+            <div class="card border-0">
+              <div class="row g-0">
+                <div class="col-md-5">
+                  <img src="./images/p22.jfif" class="img-fluid d-block m-auto w-auto" alt="..." title="..." style="max-height: 120px" />
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body h-100 d-flex flex-column justify-content-center align-items-center">
+                    <h6 class="card-title" style="color: brown">Product Name here</h6>
+                    <a href="http://" class="stretched-link text-decoration-none fw-semibold" style="font-size: small">Learn More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide rounded" style="box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px">
+            <div class="card border-0">
+              <div class="row g-0">
+                <div class="col-md-5">
+                  <img src="./images/p23.jfif" class="img-fluid d-block m-auto w-auto" alt="..." title="..." style="max-height: 120px" />
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body h-100 d-flex flex-column justify-content-center align-items-center">
+                    <h6 class="card-title" style="color: brown">Product Name here</h6>
+                    <a href="http://" class="stretched-link text-decoration-none fw-semibold" style="font-size: small">Learn More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide rounded" style="box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px">
+            <div class="card border-0">
+              <div class="row g-0">
+                <div class="col-md-5">
+                  <img src="./images/p24.jfif" class="img-fluid d-block m-auto w-auto" alt="..." title="..." style="max-height: 120px" />
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body h-100 d-flex flex-column justify-content-center align-items-center">
+                    <h6 class="card-title" style="color: brown">Product Name here</h6>
+                    <a href="http://" class="stretched-link text-decoration-none fw-semibold" style="font-size: small">Learn More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide rounded" style="box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px">
+            <div class="card border-0">
+              <div class="row g-0">
+                <div class="col-md-5">
+                  <img src="./images/p25.jfif" class="img-fluid d-block m-auto w-auto" alt="..." title="..." style="max-height: 120px" />
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body h-100 d-flex flex-column justify-content-center align-items-center">
+                    <h6 class="card-title" style="color: brown">Product Name here</h6>
+                    <a href="http://" class="stretched-link text-decoration-none fw-semibold" style="font-size: small">Learn More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide rounded" style="box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px">
+            <div class="card border-0">
+              <div class="row g-0">
+                <div class="col-md-5">
+                  <img src="./images/p26.jfif" class="img-fluid d-block m-auto w-auto" alt="..." title="..." style="max-height: 120px" />
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body h-100 d-flex flex-column justify-content-center align-items-center">
+                    <h6 class="card-title" style="color: brown">Product Name here</h6>
+                    <a href="http://" class="stretched-link text-decoration-none fw-semibold" style="font-size: small">Learn More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide rounded" style="box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px">
+            <div class="card border-0">
+              <div class="row g-0">
+                <div class="col-md-5">
+                  <img src="./images/p27.jfif" class="img-fluid d-block m-auto w-auto" alt="..." title="..." style="max-height: 120px" />
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body h-100 d-flex flex-column justify-content-center align-items-center">
+                    <h6 class="card-title" style="color: brown">Product Name here</h6>
+                    <a href="http://" class="stretched-link text-decoration-none fw-semibold" style="font-size: small">Learn More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide rounded" style="box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px">
+            <div class="card border-0">
+              <div class="row g-0">
+                <div class="col-md-5">
+                  <img src="./images/p28.jfif" class="img-fluid d-block m-auto w-auto" alt="..." title="..." style="max-height: 120px" />
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body h-100 d-flex flex-column justify-content-center align-items-center">
+                    <h6 class="card-title" style="color: brown">Product Name here</h6>
+                    <a href="http://" class="stretched-link text-decoration-none fw-semibold" style="font-size: small">Learn More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide rounded" style="box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px">
+            <div class="card border-0">
+              <div class="row g-0">
+                <div class="col-md-5">
+                  <img src="./images/p28.jfif" class="img-fluid d-block m-auto w-auto" alt="..." title="..." style="max-height: 120px" />
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body h-100 d-flex flex-column justify-content-center align-items-center">
+                    <h6 class="card-title" style="color: brown">Product Name here</h6>
+                    <a href="http://" class="stretched-link text-decoration-none fw-semibold" style="font-size: small">Learn More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="fw-bolder mt-5 text-center" style="color: #b31c27">Why Choose Axis Safety Eng Ltd for NAFFCO Products?</h3>
+      <p style="text-align: center">As the leading distributor of NAFFCO products in Bangladesh, Axis Safety Eng Ltd provides world-class fire protection solutions to safeguard lives and property. From advanced firefighting equipment to state-of-the-art fire detection systems, We deliver reliable and certified fire safety products. With a commitment to excellence, we ensure your safety with tailored solutions for residential, commercial, and industrial needs. Trust Axis Safety Eng Ltd to keep you protected with industry-leading expertise and NAFFCO globally recognized quality.</p>
+      <div class="row row-cols-2 row-cols-md-2 row-cols-lg-3 row-cols-xxl-4 g-2 mt-5" data-masonry='{"percentPosition": true }'>
+        <div class="col">
+          <div class="card border-0 overflow-hidden">
+            <a href="./images/c1.webp" data-fancybox="gallery" data-caption="Title Will be Here" data-download-src="./images/c1.jfif">
+              <img class="card-img w-100 img-fluid" src="./images/c1.webp" alt="..." title="..." />
+            </a>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card border-0 overflow-hidden">
+            <a href="./images/c2.jfif" data-fancybox="gallery" data-caption="Title Will be Here" data-download-src="./images/c2.jfif">
+              <img class="card-img w-100 img-fluid" src="./images/c2.jfif" alt="..." title="..." />
+            </a>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card border-0 overflow-hidden">
+            <a href="./images/c3.webp" data-fancybox="gallery" data-caption="Title Will be Here" data-download-src="./images/c3.webp">
+              <img class="card-img w-100 img-fluid" src="./images/c3.webp" alt="..." title="..." />
+            </a>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card border-0 overflow-hidden">
+            <a href="./images/c4.webp" data-fancybox="gallery" data-caption="Title Will be Here" data-download-src="./images/c4.webp">
+              <img class="card-img w-100 img-fluid" src="./images/c4.webp" alt="..." title="..." />
+            </a>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card border-0 overflow-hidden">
+            <a href="./images/c5.jpg" data-fancybox="gallery" data-caption="Title Will be Here" data-download-src="./images/c5.jpg">
+              <img class="card-img w-100 img-fluid" src="./images/c5.jpg" alt="..." title="..." />
+            </a>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card border-0 overflow-hidden">
+            <a href="./images/c6.jfif" data-fancybox="gallery" data-caption="Title Will be Here" data-download-src="./images/c6.jfif">
+              <img class="card-img w-100 img-fluid" src="./images/c6.jfif" alt="..." title="..." />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="fw-bolder mt-5 text-center" style="color: #b31c27">NAFFCO-Certified Distributor – Your Trusted Fire Protection Partner</h3>
+      <p style="text-align: center">As the leading distributor of NAFFCO products in Bangladesh, Axis Safety Eng Ltd provides world-class fire protection solutions to safeguard lives and property. From advanced firefighting equipment to state-of-the-art fire detection systems, We deliver reliable and certified fire safety products. With a commitment to excellence, we ensure your safety with tailored solutions for residential, commercial, and industrial needs. Trust Axis Safety Eng Ltd to keep you protected with industry-leading expertise and NAFFCO globally recognized quality.</p>
+      <p style="text-align: center">As the leading distributor of NAFFCO products in Bangladesh, Axis Safety Eng Ltd provides world-class fire protection solutions to safeguard lives and property. From advanced firefighting equipment to state-of-the-art fire detection systems, We deliver reliable and certified fire safety products. With a commitment to excellence, we ensure your safety with tailored solutions for residential, commercial, and industrial needs. Trust Axis Safety Eng Ltd to keep you protected with industry-leading expertise and NAFFCO globally recognized quality.</p>
+
+      <div class="row mt-5">
+        <div class="col-sm-12 col-md-7">
+          <h3 class="fw-bolder" style="color: #b31c27">We Wins NAFFCO Sales Achievement Award 2024</h3>
+          <p style="text-align: justify">As the leading distributor of NAFFCO products in Bangladesh, Axis Safety Eng Ltd provides world-class fire protection solutions to safeguard lives and property. From advanced firefighting equipment to state-of-the-art fire detection systems, We deliver reliable and certified fire safety products. With a commitment to excellence, we ensure your safety with tailored solutions for residential, commercial, and industrial needs. Trust Axis Safety Eng Ltd to keep you protected with industry-leading expertise and NAFFCO globally recognized quality.</p>
+        </div>
+        <div class="col-sm-12 col-md-5">
+          <img src="./images/a1.jpg" class="img-fluid d-block m-auto" alt="..." title="..." style="max-height: 300px" />
+        </div>
+      </div>
+
+      <h3 class="fw-bolder mt-5 text-center" style="color: #b31c27">Experience the Power of NAFFCO and Axis Safety Eng Ltd – Watch Now</h3>
+      <p style="text-align: center">As the leading distributor of NAFFCO products in Bangladesh, Axis Safety Eng Ltd provides world-class fire protection solutions to safeguard lives and property. From advanced firefighting equipment to state-of-the-art fire detection systems, We deliver reliable and certified fire safety products. With a commitment to excellence, we ensure your safety with tailored solutions for residential, commercial, and industrial needs. Trust Axis Safety Eng Ltd to keep you protected with industry-leading expertise and NAFFCO globally recognized quality.</p>
+      <iframe width="100%" height="400" src="https://www.youtube.com/embed/RF6VQNB1N4w?si=FhM9XDTVYhfu-czF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+      <h3 class="fw-bolder mt-5 text-center" style="color: #b31c27">Our Commitment to Fire Safety: NAFFCO and Axis Safety Eng Ltd</h3>
+      <p style="text-align: center">As the leading distributor of NAFFCO products in Bangladesh, Axis Safety Eng Ltd provides world-class fire protection solutions to safeguard lives and property. From advanced firefighting equipment to state-of-the-art fire detection systems, We deliver reliable and certified fire safety products. With a commitment to excellence, we ensure your safety with tailored solutions for residential, commercial, and industrial needs. Trust Axis Safety Eng Ltd to keep you protected with industry-leading expertise and NAFFCO globally recognized quality.</p>
+      <div class="row row-cols-2 row-cols-md-2 row-cols-lg-3 row-cols-xxl-4 g-2 mt-5" data-masonry='{"percentPosition": true }'>
+        <div class="col">
+          <div class="card border-0 overflow-hidden">
+            <a href="./images/image1.jpg" data-fancybox="gallery" data-caption="Title Will be Here" data-download-src="./images/image1.jpg">
+              <img class="card-img w-100 img-fluid" src="./images/image1.jpg" alt="..." title="..." />
+            </a>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card border-0 overflow-hidden">
+            <a href="./images/image2.jpg" data-fancybox="gallery" data-caption="Title Will be Here" data-download-src="./images/image2.jpg">
+              <img class="card-img w-100 img-fluid" src="./images/image2.jpg" alt="..." title="..." />
+            </a>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card border-0 overflow-hidden">
+            <a href="./images/image3.jpg" data-fancybox="gallery" data-caption="Title Will be Here" data-download-src="./images/image3.jpg">
+              <img class="card-img w-100 img-fluid" src="./images/image3.jpg" alt="..." title="..." />
+            </a>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card border-0 overflow-hidden">
+            <a href="./images/image4.jpg" data-fancybox="gallery" data-caption="Title Will be Here" data-download-src="./images/image4.jpg">
+              <img class="card-img w-100 img-fluid" src="./images/image4.jpg" alt="..." title="..." />
+            </a>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card border-0 overflow-hidden">
+            <a href="./images/image5.jpg" data-fancybox="gallery" data-caption="Title Will be Here" data-download-src="./images/image5.jpg">
+              <img class="card-img w-100 img-fluid" src="./images/image5.jpg" alt="..." title="..." />
+            </a>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card border-0 overflow-hidden">
+            <a href="./images/image6.jpg" data-fancybox="gallery" data-caption="Title Will be Here" data-download-src="./images/image6.jpg">
+              <img class="card-img w-100 img-fluid" src="./images/image6.jpg" alt="..." title="..." />
+            </a>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card border-0 overflow-hidden">
+            <a href="./images/image7.jpg" data-fancybox="gallery" data-caption="Title Will be Here" data-download-src="./images/image7.jpg">
+              <img class="card-img w-100 img-fluid" src="./images/image7.jpg" alt="..." title="..." />
+            </a>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card border-0 overflow-hidden">
+            <a href="./images/image8.jpg" data-fancybox="gallery" data-caption="Title Will be Here" data-download-src="./images/image8.jpg">
+              <img class="card-img w-100 img-fluid" src="./images/image8.jpg" alt="..." title="..." />
+            </a>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card border-0 overflow-hidden">
+            <a href="./images/image9.jpg" data-fancybox="gallery" data-caption="Title Will be Here" data-download-src="./images/image9.jpg">
+              <img class="card-img w-100 img-fluid" src="./images/image9.jpg" alt="..." title="..." />
+            </a>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card border-0 overflow-hidden">
+            <a href="./images/image10.jpg" data-fancybox="gallery" data-caption="Title Will be Here" data-download-src="./images/image10.jpg">
+              <img class="card-img w-100 img-fluid" src="./images/image10.jpg" alt="..." title="..." />
+            </a>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card border-0 overflow-hidden">
+            <a href="./images/image11.jpg" data-fancybox="gallery" data-caption="Title Will be Here" data-download-src="./images/image11.jpg">
+              <img class="card-img w-100 img-fluid" src="./images/image11.jpg" alt="..." title="..." />
+            </a>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card border-0 overflow-hidden">
+            <a href="./images/image1.jpg" data-fancybox="gallery" data-caption="Title Will be Here" data-download-src="./images/image1.jpg">
+              <img class="card-img w-100 img-fluid" src="./images/image1.jpg" alt="..." title="..." />
+            </a>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card border-0 overflow-hidden">
+            <a href="./images/image1.jpg" data-fancybox="gallery" data-caption="Title Will be Here" data-download-src="./images/image1.jpg">
+              <img class="card-img w-100 img-fluid" src="./images/image1.jpg" alt="..." title="..." />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="fw-bolder mt-5 text-center" style="color: #b31c27">Hear from Our Satisfied Clients – NAFFCO Partnership</h3>
+      <p style="text-align: center">As the leading distributor of NAFFCO products in Bangladesh, Axis Safety Eng Ltd provides world-class fire protection solutions to safeguard lives and property. From advanced firefighting equipment to state-of-the-art fire detection systems, We deliver reliable and certified fire safety products. With a commitment to excellence, we ensure your safety with tailored solutions for residential, commercial, and industrial needs. Trust Axis Safety Eng Ltd to keep you protected with industry-leading expertise and NAFFCO globally recognized quality.</p>
+      <div class="swiper mySwiper w-100 testimonial">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide d-flex justify-content-center align-items-center">
+            <div class="card border-0 rounded w-100 py-5 px-4">
+              <div class="row g-0">
+                <div class="col-md-2 d-flex justify-content-center align-items-center">
+                  <img src="./images/person1.png" class="card-img img-fluid d-block m-auto rounded-circle" alt="..." title="..." style="width: 170px; height: 170px" />
+                </div>
+                <div class="col-md-10">
+                  <div class="card-body">
+                    <p class="card-text mb-4" style="text-align: justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto enim, ullam provident maxime ducimus nisi optio. Necessitatibus iure qui pariatur, temporibus repellendus quidem earum labore, ipsum cupiditate laboriosam fugiat. Quaerat.</p>
+                    <h5 class="card-title" style="color: brown;">Client Name Will Be Here</h5>
+                    <h6 class="card-subtitle">Client Designation Will Be Here</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide d-flex justify-content-center align-items-center">
+            <div class="card border-0 rounded w-100 py-5 px-4">
+              <div class="row g-0">
+                <div class="col-md-2 d-flex justify-content-center align-items-center">
+                  <img src="./images/person2.png" class="card-img img-fluid d-block m-auto rounded-circle" alt="..." title="..." style="width: 170px; height: 170px" />
+                </div>
+                <div class="col-md-10">
+                  <div class="card-body">
+                    <p class="card-text mb-4" style="text-align: justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto enim, ullam provident maxime ducimus nisi optio. Necessitatibus iure qui pariatur, temporibus repellendus quidem earum labore, ipsum cupiditate laboriosam fugiat. Quaerat.</p>
+                    <h5 class="card-title" style="color: brown;">Client Name Will Be Here</h5>
+                    <h6 class="card-subtitle">Client Designation Will Be Here</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="autoplay-progress">
+          <svg viewBox="0 0 48 48">
+            <circle cx="24" cy="24" r="20"></circle>
+          </svg>
+          <span></span>
+        </div>
+      </div>
+
+      <h3 class="fw-bolder mt-5 text-center" style="color: #b31c27">Contact Us for Products and Consultation Services</h3>
+      <p style="text-align: center">As the leading distributor of NAFFCO products in Bangladesh, Axis Safety Eng Ltd provides world-class fire protection solutions to safeguard lives and property. From advanced firefighting equipment to state-of-the-art fire detection systems, We deliver reliable and certified fire safety products. With a commitment to excellence, we ensure your safety with tailored solutions for residential, commercial, and industrial needs. Trust Axis Safety Eng Ltd to keep you protected with industry-leading expertise and NAFFCO globally recognized quality.</p>
+
+      <div class="row p-3 m-md-4 p-md-4 m-lg-5 p-lg-5 contact rounded-3 shadow">
+        <div class="col-sm-12 col-md-6 col-lg-5 border-end border-2">
+          <address class="d-flex flex-column">
+            <h2>Axis Safety Engineering Ltd.</h2>
+            <h6 class="fw-bold mt-3">Corporate Headquarters</h6>
+            <p>House# 02, Road#12/A Sector #10, Uttara Dhaka-1230</p>
+
+            <h6 class="fw-bold mt-3">Customer Service:</h6>
+            <a href="tel:+8801712015951" class="text-decoration-none fw-semibold">
+              <i class="bi bi-telephone-forward"> <span class="ps-2 text-muted">+8801712015951</span> </i>
+            </a>
+            <a href="tel:+8801712023146" class="text-decoration-none fw-semibold">
+              <i class="bi bi-telephone-forward"> <span class="ps-2 text-muted">+8801712023146</span> </i>
+            </a>
+
+            <h6 class="fw-bold mt-4">Technical Support:</h6>
+            <a href="tel:+8801712015951" class="text-decoration-none fw-semibold">
+              <i class="bi bi-telephone-forward"> <span class="ps-2 text-muted">+8801712015951</span> </i>
+            </a>
+            <a href="mailto:info@axissafety.com.bd" class="text-decoration-none fw-semibold">
+              <i class="bi bi-envelope-fill"><span class="ps-3 text-muted">info@axissafety.com.bd</span></i>
+            </a>
+          </address>
+        </div>
+        <div class="col-sm-12 col-md-6 ms-lg-5 mt-4 mt-md-0">
+          <h2>Contact Us</h2>
+          <form action="{{ route('contact-store') }}" method="post">
+            <div class="mb-3">
+              <label for="" class="form-label fw-semibold asterisk">First name, surname</label>
+              <input type="text" class="form-control" name="name" required />
+            </div>
+            <div class="mb-3">
+              <label for="" class="form-label fw-semibold asterisk">Email</label>
+              <input type="email" class="form-control" name="email" required />
+            </div>
+            <div class="mb-3">
+              <label for="" class="form-label fw-semibold asterisk">Subject</label>
+              <input type="text" class="form-control" name="subject" required />
+            </div>
+            <div class="mb-3">
+              <label for="" class="form-label fw-semibold">Your message (optional)</label>
+              <textarea class="form-control" name="message" id="" rows="2"></textarea>
+            </div>
+            <button type="submit" class="btn fw-semibold w-100">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+
+    <script>
+      var swiper = new Swiper(".mySwiper2", {
+        slidesPerView: 3,
+        grid: {
+          rows: 2,
+        },
+        spaceBetween: 30,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+    </script>
+
+    <script>
+      const progressCircle = document.querySelector(".autoplay-progress svg");
+      const progressContent = document.querySelector(".autoplay-progress span");
+
+      var swiper = new Swiper(".mySwiper", {
+        direction: "vertical",
+        slidesPerView: 1,
+        spaceBetween: 30,
+        mousewheel: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        on: {
+          autoplayTimeLeft(s, time, progress) {
+            progressCircle.style.setProperty("--progress", 1 - progress);
+            progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+          },
+        },
+      });
+    </script>
+
+    <script>
+      var swiper = new Swiper(".productSwiper", {
+        slidesPerView: 3,
+        grid: {
+          rows: 2,
+        },
+        loop: true,
+        speed: 3000,
+        spaceBetween: 10,
+        centeredSlides: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+      });
+    </script>
+
+    <script>
+      Fancybox.bind('[data-fancybox="gallery"]', {
+        compact: false,
+        idle: false,
+
+        animated: true,
+        showClass: true,
+        hideClass: false,
+
+        dragToClose: true,
+        contentClick: true,
+
+        Images: {
+          zoom: false,
+        },
+
+        Toolbar: {
+          display: {
+            left: ["infobar"],
+            middle: ["zoomIn", "zoomOut", "toggle1to1", "rotateCCW", "rotateCW", "flipX", "flipY"],
+            right: ["slideshow", "iterateZoom", "fullscreen", "download", "thumbs", "close"],
+          },
+        },
+
+        Thumbs: {
+          type: "modern",
+        },
+      });
+    </script>
+  </body>
+</html>
